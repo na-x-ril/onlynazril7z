@@ -1,43 +1,51 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Button } from "@/components/ui/button"
-import { Phone, MapPin } from "lucide-react"
-import { SiGmail } from "react-icons/si"
-import { toast } from "sonner"
-import { AnimatedElement } from "@/components/animations/animated-element"
+import { useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Phone, MapPin } from "lucide-react";
+import { SiGmail } from "react-icons/si";
+import { toast } from "sonner";
+import { AnimatedElement } from "@/components/animations/animated-element";
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.message) {
-      toast.error("Please fill in all fields")
-      return
+      toast.error("Please fill in all fields");
+      return;
     }
 
-    toast.success("Message sent successfully!")
-    setFormData({ name: "", email: "", message: "" })
-  }
+    toast.success("Message sent successfully!");
+    setFormData({ name: "", email: "", message: "" });
+  };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
-    <section id="contact" className="py-20 bg-muted/30 min-h-screen">
+    <section id="contact" className="py-10 bg-muted/30 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 pt-20 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <AnimatedElement>
@@ -51,11 +59,13 @@ export const ContactSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <AnimatedElement direction="left" delay={370}>
+          <AnimatedElement direction="left" delay={270}>
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
-                <CardDescription>Feel free to reach out through any of these channels</CardDescription>
+                <CardTitle className="font-bold">Contact Information</CardTitle>
+                <CardDescription>
+                  Feel free to reach out through any of these channels
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex items-center space-x-4 group hover:text-primary transition-colors">
@@ -68,7 +78,7 @@ export const ContactSection = () => {
                 </div>
                 <div className="flex items-center space-x-4 group hover:text-primary transition-colors">
                   <MapPin className="h-5 w-5 text-blue-500 group-hover:scale-110 transition-transform" />
-                  <p>Jakarta</p>
+                  <p>Tulungagung, East Java</p>
                 </div>
               </CardContent>
             </Card>
@@ -77,8 +87,10 @@ export const ContactSection = () => {
           <AnimatedElement direction="right" delay={600}>
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
-                <CardTitle>Send a Message</CardTitle>
-                <CardDescription>I'll get back to you as soon as possible</CardDescription>
+                <CardTitle className="font-bold">Send a Message</CardTitle>
+                <CardDescription>
+                  {`I'll get back to you as soon as possible`}
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -135,7 +147,10 @@ export const ContactSection = () => {
                       required
                     />
                   </div>
-                  <Button type="submit" className="w-full hover:scale-105 transition-transform">
+                  <Button
+                    type="submit"
+                    className="w-full hover:scale-105 transition-transform"
+                  >
                     Send Message
                   </Button>
                 </form>
@@ -145,5 +160,5 @@ export const ContactSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
