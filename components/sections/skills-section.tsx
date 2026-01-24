@@ -1,24 +1,38 @@
 "use client";
 
-import { SiJavascript, SiTypescript, SiReact, SiNodedotjs, SiExpress, SiTailwindcss, SiGit } from "react-icons/si";
+import {
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiTailwindcss,
+  SiGit,
+} from "react-icons/si";
 import { AnimatedElement } from "@/components/animations/animated-element";
 import { skills } from "@/data/portfolio-data";
+import useIsMobile from "@/hooks/useIsMobile";
 
 // Helper untuk map iconKey ke komponen
 const iconMap: Record<string, JSX.Element> = {
-  SiJavascript: <SiJavascript />,
+  SiJavascript: <SiJavascript color="yellow" />,
   SiTypescript: <SiTypescript />,
-  SiReact: <SiReact />,
+  SiReact: <SiReact color="#61DBFB" />,
   SiNodedotjs: <SiNodedotjs />,
   SiExpress: <SiExpress />,
-  SiTailwindcss: <SiTailwindcss />,
-  SiGit: <SiGit />,
-  AI: <div className="font-bold text-lg">AI</div>,
+  SiTailwindcss: <SiTailwindcss color="blue" />,
+  SiGit: <SiGit color="#F1502F" />,
+  AI: <div className="font-bold text-lg text-[#4285F4]">AI</div>,
 };
 
 export const SkillsSection = () => {
+  const { isMobile, isLoading } = useIsMobile();
+  if (isLoading) {
+    return <div>Detecting device...</div>;
+  }
+
   return (
-    <section id="skills" className="py-20 bg-muted/30 min-h-screen">
+    <section id="skills" className="py-10 bg-muted/30 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 pt-20 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <AnimatedElement>
@@ -33,7 +47,11 @@ export const SkillsSection = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {skills.map((skill, index) => (
-            <AnimatedElement key={index} delay={index * 70} direction="up">
+            <AnimatedElement
+              key={index}
+              delay={index * (isMobile ? 70 : 20)}
+              direction="up"
+            >
               <a
                 href={skill.link}
                 target="_blank"
