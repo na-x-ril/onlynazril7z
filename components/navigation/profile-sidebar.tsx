@@ -6,7 +6,12 @@ import { Button } from "@/components/ui/button";
 import { SiGithub, SiInstagram } from "react-icons/si";
 import Image from "next/image";
 
-import { personalInfo, navItems, skills, projects } from "@/data/portfolio-data";
+import {
+  personalInfo,
+  navItems,
+  skills,
+  projects,
+} from "@/data/portfolio-data";
 
 interface ProfileSidebarProps {
   showSidebar: boolean;
@@ -44,14 +49,20 @@ export const ProfileSidebar = ({
                   className="rounded-full"
                 />
               </div>
-              <h3 className="font-bold text-lg">{personalInfo.name}</h3>
-              <p className="text-sm text-muted-foreground">{personalInfo.title}</p>
+              <h3 className="font-bold text-2xl">{personalInfo.name}</h3>
+              <p className="text-sm text-muted-foreground">
+                {personalInfo.title}
+              </p>
             </div>
 
             {/* Badges */}
             <div className="space-y-1 mb-4">
               {personalInfo.badges.map((b) => (
-                <Badge key={b} variant="secondary" className="w-full justify-center text-base">
+                <Badge
+                  key={b}
+                  variant="secondary"
+                  className="w-full justify-center text-base select-none"
+                >
                   {b}
                 </Badge>
               ))}
