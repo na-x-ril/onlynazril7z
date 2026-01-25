@@ -4,9 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "bun --bun next dev",
-    "build": "next build && next export",
-    "start": "bun --bun next start",
-    "lint": "next lint"
+    "build": "bun --bun next build",
+    "start": "bun --bun next start"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
