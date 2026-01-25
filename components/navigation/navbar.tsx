@@ -1,35 +1,41 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Menu, X, Sun, Moon } from "lucide-react"
-import { useTheme } from "next-themes"
-import Link from "next/link"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
+import Link from "next/link";
 
 interface NavbarProps {
-  activeSection: string
-  isMenuOpen: boolean
-  setIsMenuOpen: (open: boolean) => void
-  scrollToSection: (sectionId: string) => void
-  showSidebar: boolean
+  activeSection: string;
+  isMenuOpen: boolean;
+  setIsMenuOpen: (open: boolean) => void;
+  scrollToSection: (sectionId: string) => void;
+  showSidebar: boolean;
 }
 
-export const Navbar = ({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection, showSidebar }: NavbarProps) => {
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+export const Navbar = ({
+  activeSection,
+  isMenuOpen,
+  setIsMenuOpen,
+  scrollToSection,
+  showSidebar,
+}: NavbarProps) => {
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
-  if (!mounted) return null
+  if (!mounted) return null;
 
   const navItems = [
     { id: "home", label: "Home" },
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
-  ]
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
@@ -38,7 +44,7 @@ export const Navbar = ({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSecti
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center space-x-2">
               <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                D'NAZRIL
+                {`D'NAZRIL`}
               </h1>
             </Link>
           </div>
@@ -51,7 +57,9 @@ export const Navbar = ({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSecti
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-primary ${
-                    activeSection === item.id ? "text-primary bg-primary/10" : "text-muted-foreground"
+                    activeSection === item.id
+                      ? "text-primary bg-primary/10"
+                      : "text-muted-foreground"
                   }`}
                 >
                   {item.label}
@@ -63,15 +71,27 @@ export const Navbar = ({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSecti
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="ml-4"
               >
-                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                {theme === "dark" ? (
+                  <Sun className="h-4 w-4" />
+                ) : (
+                  <Moon className="h-4 w-4" />
+                )}
               </Button>
             </div>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
-            <Button variant="ghost" size="sm" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              {theme === "dark" ? (
+                <Sun className="h-4 w-4" />
+              ) : (
+                <Moon className="h-4 w-4" />
+              )}
             </Button>
             <Button
               variant="ghost"
@@ -79,7 +99,11 @@ export const Navbar = ({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSecti
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center p-2"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
@@ -96,7 +120,9 @@ export const Navbar = ({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSecti
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors hover:text-primary ${
-                  activeSection === item.id ? "text-primary bg-primary/10" : "text-muted-foreground"
+                  activeSection === item.id
+                    ? "text-primary bg-primary/10"
+                    : "text-muted-foreground"
                 }`}
               >
                 {item.label}
@@ -106,9 +132,15 @@ export const Navbar = ({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSecti
             {showSidebar && (
               <div className="mt-4 pt-4 border-t border-border">
                 <div className="px-3 py-2">
-                  <h3 className="font-semibold text-foreground mb-2">Profile</h3>
-                  <p className="text-sm text-muted-foreground mb-2">High School Student</p>
-                  <p className="text-sm text-muted-foreground">Web Developer & Tech Enthusiast</p>
+                  <h3 className="font-semibold text-foreground mb-2">
+                    Profile
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    High School Student
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Web Developer & Tech Enthusiast
+                  </p>
                 </div>
               </div>
             )}
@@ -116,5 +148,5 @@ export const Navbar = ({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSecti
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};

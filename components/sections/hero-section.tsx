@@ -1,23 +1,26 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
-import SplitText from "../split-text"
-import TextType from "../text-type"
-import { Separator } from "@radix-ui/react-context-menu"
-import Particles from "@/components/ui/particles"
-import { heroData } from "@/data/portfolio-data"
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import SplitText from "../split-text";
+import TextType from "../text-type";
+import { Separator } from "@radix-ui/react-context-menu";
+import Particles from "@/components/ui/particles";
+import { heroData } from "@/data/portfolio-data";
 
 interface HeroSectionProps {
-  scrollToSection: (sectionId: string) => void
+  scrollToSection: (sectionId: string) => void;
 }
 
 export const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div style={{ width: '100%', height: '100%', position: 'absolute'}}>
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
+    >
+      <div style={{ width: "100%", height: "100%", position: "absolute" }}>
         <Particles
-          particleColors={['#ffffff', '#0ac20aff', '#0ac20a']}
+          particleColors={["#ffffff", "#0ac20aff", "#0ac20a"]}
           particleCount={400}
           particleSpread={10}
           speed={0.1}
@@ -68,15 +71,24 @@ export const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
         />
         <Separator className="w-full mt-5 max-md:mt-2 h-[1px] bg-primary" />
         <div className="mt-5 flex sm:flex-row gap-4 justify-center lg:justify-start">
-          <Button size="lg" onClick={() => scrollToSection("projects")} className="group w-full">
+          <Button
+            size="lg"
+            onClick={() => scrollToSection("projects")}
+            className="group w-full"
+          >
             View My Work
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
-          <Button className="bg-transparent dark:bg-black/20 backdrop-blur-md w-full" variant="outline" size="lg" onClick={() => scrollToSection("contact")}>
+          <Button
+            className="bg-transparent dark:bg-black/20 backdrop-blur-md w-full"
+            variant="outline"
+            size="lg"
+            onClick={() => scrollToSection("contact")}
+          >
             Get In Touch
           </Button>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
