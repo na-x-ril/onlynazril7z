@@ -40,12 +40,12 @@ export const ProfileSidebar = ({
           <CardContent className="p-6">
             {/* Avatar + Name */}
             <div className="text-center mb-4">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-2xl">
+              <div className="w-32 h-32 bg-blue-700 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-2xl">
                 <Image
                   src={personalInfo.avatar}
                   alt="Profile Picture"
-                  width={80}
-                  height={80}
+                  width={124}
+                  height={124}
                   className="rounded-full"
                 />
               </div>
