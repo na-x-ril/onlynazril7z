@@ -15,14 +15,14 @@ import useIsMobile from "@/hooks/useIsMobile";
 
 // Helper untuk map iconKey ke komponen
 const iconMap: Record<string, JSX.Element> = {
-  SiJavascript: <SiJavascript color="yellow" />,
-  SiTypescript: <SiTypescript />,
-  SiReact: <SiReact color="#61DBFB" />,
-  SiNodedotjs: <SiNodedotjs />,
-  SiExpress: <SiExpress />,
-  SiTailwindcss: <SiTailwindcss color="blue" />,
-  SiGit: <SiGit color="#F1502F" />,
-  AI: <div className="font-bold text-lg text-[#4285F4]">AI</div>,
+  SiJavascript: <SiJavascript color="yellow" size="40" />,
+  SiTypescript: <SiTypescript size="40" />,
+  SiReact: <SiReact color="#61DBFB" size="40" />,
+  SiNodedotjs: <SiNodedotjs size="40" />,
+  SiExpress: <SiExpress size="40" />,
+  SiTailwindcss: <SiTailwindcss color="#38BDF8" size="40" />,
+  SiGit: <SiGit color="#F1502F" size="40" />,
+  AI: <div className="font-bold text-3xl text-[#4285F4]">AI</div>,
 };
 
 export const SkillsSection = () => {
@@ -45,7 +45,7 @@ export const SkillsSection = () => {
           </AnimatedElement>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {skills.map((skill, index) => (
             <AnimatedElement
               key={index}
@@ -58,7 +58,7 @@ export const SkillsSection = () => {
                 rel="noopener noreferrer"
                 className="group flex flex-col items-center text-center p-6 rounded-xl bg-background hover:bg-muted/50 transition-all duration-300 hover:scale-105 hover:shadow-lg"
               >
-                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-muted group-hover:bg-background transition-colors duration-300 text-3xl mb-4">
+                <div className="w-20 h-20 flex items-center justify-center rounded-full bg-muted group-hover:bg-background transition-colors duration-300 text-3xl mb-4">
                   <span className={skill.color}>{iconMap[skill.iconKey]}</span>
                 </div>
                 <p className="font-semibold group-hover:text-primary transition-colors">

@@ -19,8 +19,9 @@ export const personalInfo = {
 export const heroData = {
   greeting: "Hello 👋,",
   name: "I'm Muhammad Nazril!",
-  tagline: "I am a high school student who is interested in web development and technology."
-}
+  tagline:
+    "I am a high school student who is interested in web development and technology.",
+};
 
 // 2. Navigation items for sidebar
 export const navItems = [
@@ -33,23 +34,27 @@ export const navItems = [
 export const techLinks: Record<string, string> = {
   "Next.js": "https://nextjs.org/",
   "Tailwind CSS": "https://tailwindcss.com/",
+  TypeScript: "https://www.typescriptlang.org/",
   JavaScript: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   Clerk: "https://clerk.com/",
   Convex: "https://www.convex.dev/",
+  SCSS: "https://sass-lang.com/",
 };
 
 // 4. Projects
 export const projects = [
   {
     title: "D'Nazrill Portfolio",
-    description: "Portfolio website showcasing my projects, contacts and social media.",
+    description:
+      "Portfolio website showcasing my projects, contacts and social media.",
     tags: ["Next.js", "Tailwind CSS"],
     githubUrl: "https://github.com/na-x-ril/nazril-portfolio/",
     liveUrl: "https://onlynazril7z.vercel.app/",
   },
   {
     title: "NZChat",
-    description: "A simple realtime chat application using Next.js, Clerk, Convex and Tailwind CSS.",
+    description:
+      "A simple realtime chat application using Next.js, Clerk, Convex and Tailwind CSS.",
     tags: ["Next.js", "Tailwind CSS", "Clerk", "Convex"],
     githubUrl: "https://github.com/na-x-ril/nzchat/",
     liveUrl: "https://nzchat.vercel.app/",
@@ -67,6 +72,13 @@ export const projects = [
     tags: ["JavaScript"],
     githubUrl: "https://github.com/na-x-ril/api-nazlly/",
     liveUrl: "https://api-nazlly.vercel.app/",
+  },
+  {
+    title: "YT Enhancer",
+    description:
+      "A Firefox(mainly) web extension to improve YouTube user experience.",
+    tags: ["TypeScript", "JavaScript", "SCSS"],
+    githubUrl: "https://github.com/na-x-ril/yt-enhancer",
   },
   {
     title: "Whatsapp Ext",
